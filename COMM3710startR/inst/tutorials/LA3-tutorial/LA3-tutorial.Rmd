@@ -11,12 +11,11 @@ library(descr)
 library(magrittr)
 knitr::opts_chunk$set(echo = FALSE)
 
+setwd("C:/Users/SaraK/Downloads/tutorials/COMM3710startR/")
 issdf <- read.csv("data/ISSdata.csv")
 ```
 
-
-
-## Topic 1
+## Loading data into R
 
 ### Exercise 
 
@@ -24,7 +23,7 @@ issdf <- read.csv("data/ISSdata.csv")
 
 Write the R code required to add two plus two:
 
-```{r two-plus-two, exercise=TRUE}
+```{r read-in, exercise=TRUE}
 
 ```
 

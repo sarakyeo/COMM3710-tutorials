@@ -1,6 +1,8 @@
 ---
 title: "LA.4 Tutorial"
-output: learnr::tutorial
+output:
+  learnr::tutorial:
+    theme: "united"
 runtime: shiny_prerendered
 ---
 

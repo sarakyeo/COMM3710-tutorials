@@ -1,18 +1,18 @@
 Package: COMM3710startR
-Title: What the Package Does (One Line, Title Case)
+Title: Tutorials for Getting Started with R in COMM 3710
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
+Authors@R:
+    person(given = "Sara",
+           family = "Yeo",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "sara.yeo@example.com",
+           comment = c(ORCID = "0000-0002-2043-8400"))
+Description: A package of tutorials to help students with individual assignments in COMM 3710: Introduction to Quantitative Communication Research at the University of Utah.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Suggests: 
+Suggests:
     learnr

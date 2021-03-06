@@ -1,0 +1,21 @@
+Package: COMM3710startR
+Title: Includes tutorials for getting started with R in COMM 3710
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Sara",
+           family = "Yeo",
+           role = c("aut", "cre"),
+           email = "sara.yeo@example.com",
+           comment = c(ORCID = "0000-0002-2043-8400"))
+Description: Includes tutorials for individual assignments in COMM 3710 at the Unviersity of Utah.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+        license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: learnr
+NeedsCompilation: no
+Packaged: 2021-03-06 00:05:28 UTC; Sara (local)
+Author: Sara Yeo [aut, cre] (<https://orcid.org/0000-0002-2043-8400>)
+Maintainer: Sara Yeo <sara.yeo@example.com>

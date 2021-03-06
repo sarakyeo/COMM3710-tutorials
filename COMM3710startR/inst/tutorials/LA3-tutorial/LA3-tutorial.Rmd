@@ -1,6 +1,8 @@
 ---
 title: "LA.3 Tutorial"
-output: learnr::tutorial
+output:
+  learnr::tutorial:
+    theme: "united"
 runtime: shiny_prerendered
 ---
 
@@ -9,71 +11,93 @@ library(learnr)
 library(tidyverse)
 library(descr)
 library(magrittr)
+
 knitr::opts_chunk$set(echo = FALSE)
-
-setwd("C:/Users/SaraK/Downloads/tutorials/COMM3710startR/")
-issdf <- read.csv("data/ISSdata.csv")
 ```
 
-## Loading data into R
+## Introduction
+In this tutorial, you will learn how to use R to accomplish the following:
 
-### Exercise 
+1. Open a help page in R
+2. Run a frequency distribution
+3. Subset data
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
 
-Write the R code required to add two plus two:
+## Data frames
+### What is a data frame?
+A data frame is a rectangular collection of values, usually organized so that variables appear in the columns and observations appear in rows. For this tutorial, we will use the `mpg` data frame that is included in one of the R packages that we will be using in this course, `ggplot2`.
 
-```{r read-in, exercise=TRUE}
+The `mpg` data frame contains observations collected by the U.S. Environmental Protection Agency on 38 models of cars. To see the `mpg` data frame, type `mpg` in the code chunk below and then click “Run code.”
+
+```{r df, exercise=TRUE}
 
 ```
 
-### Exercise with Code
+### A note about `mpg`
+Note that I have already loaded the `ggplot2` package for you. On your own computer, you will first have to install and load `ggplot2` in R. To do so, follow the instructions in this [section of COMM 3710: Getting Started with R](https://sarakyeo.github.io/COMM-3710-bookdown/docs/start.html#packages).
 
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
 
-Now write a function that adds any two numbers and then call it:
+## Help pages
+To learn more about a command or function in R, you can open its help page. The help page explains the functions, its arguments, and includes use examples. Be sure to review the examples, which are often at the bottom of the help page.
 
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
+Let's learn more about the `mpg` dataset by opening its help page. Type `?mpg` in the code chunk below and click "Run code."
+
+```{r help, exercise=TRUE}
+
 ```
 
-## Topic 2
+The page that opens in your web browser gives you a description of the `mpg` dataset as well as information about the number of observations (rows) and variables (columns).
 
-### Exercise with Hint
 
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+## Frequency distributions
+A frequency distribution is an overview of all distinct values in a variable and the number of times they occur. A frequency distribution can be shown as a list, table, or graph.
 
-Modify the following code to limit the number of rows printed to 5:
+The definition below uses terms with which we are familiar from lecture:
 
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
+> A frequency distribution is a description of the number of times the various attributes of a variable are observed in a sample.
+
+Let's learn how to run frequency distributions in R using the `freq()` function in the `descr` package. I have already loaded the package for you, but you will have to do so when working on your assignments for this course.
+
+### Example
+The R code below runs a frequency distribution of the variable, `manufacturer`, in the `mpg` data frame. Running the code produces a **histogram** and a **frequency table**.
+
+```{r example-freq, exercise=TRUE}
+freq(mpg$manufacturer)
 ```
 
-```{r print-limit-hint}
-head(mtcars)
+### Your turn
+*Write the R code to run a frequency distribution of the variable `hwy` in the `mpg` data frame.*
+
+```{r student-freq, exercise=TRUE}
+
 ```
 
-### Quiz
+```{r student-freq-solution}
+freq(mpg$hwy)
+```
 
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
 
-Some questions to verify that you understand the purposes of various base and recommended R packages:
+## Subset data
+Often, we may want to examine a subset of our data. To do so, we can use the `filter()` function. 
 
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
-)
+### Example
+Let's say I want to examine the highway gas mileage (`hwy`) of only compact cars. To do so, I can subset the data by the variable, `class`, and then run a frequency distribution of `hwy`.
+
+The code below subsets the data based on the variable, `class`, into a separate data frame called `subdf` (you can call this whatever you want). The subsequent line of code runs a frequency distribution on the variable `hwy` in the `subdf` data frame. 
+
+```{r example-sub, exercise=TRUE}
+subdf <- filter(mpg, class == "compact")
+freq(subdf$hwy)
+```
+
+### Your turn
+*Write R code to subset the data by manufacturer (`manufacturer`). Examine the highway mileage (`hwy`) of Toyotas by running a frequency distribution.*
+
+```{r student-sub, exercise=TRUE}
+
+```
+
+```{r student-sub-solution}
+subdf <- filter(mpg, manufacturer == "toyota")
+freq(subdf$hwy)
 ```

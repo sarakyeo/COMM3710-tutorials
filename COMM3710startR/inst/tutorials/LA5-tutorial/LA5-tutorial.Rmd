@@ -83,6 +83,13 @@ To do so, we specify both the x and y variables in the `aes()` argument of the `
 
 In addition to specifying which variable to plot on the y-axis, we also need to tell `ggplot2` that we want a scatter plot. We do so by changing `geom_histogram()` into `geom_point()`.
 
+Remember, the R code used to create the histogram of `cty` is:
+```{r eval=FALSE, echo=TRUE}
+ggplot(data = mpg, aes(x = cty)) +
+        geom_histogram() +
+        labs(x = "City gas mileage (miles per gallon)")
+```
+
 ### Your turn
 Use the code chunk below to create a scatter plot with `hwy` on the x-axis and `cty` on the y-axis. Label both axes appropriately.
 

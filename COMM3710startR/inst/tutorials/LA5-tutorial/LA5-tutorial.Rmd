@@ -75,7 +75,27 @@ ggplot(data = mpg, aes(x = cty)) +
         labs(x = "City gas mileage (miles per gallon)")
 ```
 
+
 ## Scatter plots
+Now, let's examine the relationship between `cty` and `hwy`. What do you think this relationship might be? We can check our hypothesis about the relationship between these variables by creating a scatter plot.
 
+To do so, we specify both the x and y variables in the `aes()` argument of the `ggplot()` function. In the histogram, we specified `x = hwy` or `x = cty`. In this case, we also need to include a `y = ...` in the argument.
 
+In addition to specifying which variable to plot on the y-axis, we also need to tell `ggplot2` that we want a scatter plot. We do so by changing `geom_histogram()` into `geom_point()`.
 
+### Your turn
+Use the code chunk below to create a scatter plot with `hwy` on the x-axis and `cty` on the y-axis. Label both axes appropriately.
+
+```{r scatter, exercise=TRUE, exercise.lines=10}
+
+```
+
+```{r scatter-hint}
+ggplot(data = mpg, aes(x = hwy, y = cty)) +
+        geom_point() +
+        labs(x = "Highway gas mileage (miles per gallon)",
+             y = "City gas miileage (miles per gallon)")
+```
+
+### Congratulations
+You are now ready to complete LA.5!

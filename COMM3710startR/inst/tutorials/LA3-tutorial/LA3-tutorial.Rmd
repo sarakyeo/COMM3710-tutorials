@@ -105,3 +105,6 @@ freq(subdf$hwy)
 subdf <- filter(mpg, manufacturer == "toyota")
 freq(subdf$hwy)
 ```
+
+### Congratulations
+You are now ready to complete LA.3!

@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Introduction
-In this tutorial, you will learn how to:
+In this tutorial, you will learn how to: test
 
 1. Use `[ ]` for subsetting to recode variables
 2. Use the `ifelse()` function to recode variables

@@ -76,7 +76,7 @@ freq(mpg$manufacturer)
 
 ```
 
-```{r student-freq-solution}
+```{r student-freq-hint}
 freq(mpg$hwy)
 ```
 
@@ -101,7 +101,7 @@ freq(subdf$hwy)
 
 ```
 
-```{r student-sub-solution}
+```{r student-sub-hint}
 subdf <- filter(mpg, manufacturer == "toyota")
 freq(subdf$hwy)
 ```

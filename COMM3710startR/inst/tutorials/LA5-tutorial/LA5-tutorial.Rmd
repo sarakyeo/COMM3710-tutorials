@@ -1,0 +1,81 @@
+---
+title: "LA.5 Tutorial"
+output:
+  learnr::tutorial:
+    theme: "united"
+runtime: shiny_prerendered
+description: >
+  Learn the basics of `ggplot2` for graphing.
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+library(descr)
+library(magrittr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+This tutorial covers the basics of plotting with the package, `ggplot2`. This package is contained within a collection of R packages designed for data science known as the [tidyverse](https://www.tidyverse.org/).
+
+The core tidyverse includes packages that we use in everyday data analysis, including:
+
+- `ggplot2`
+- `dplyr`
+- `tibble`
+
+In this tutorial, we will learn how to:
+
+1. Create a histogram
+2. Create a scatter plot
+
+Before you begin this tutorial, read [Chapter 5 of COMM 3710: Getting Started with R](https://sarakyeo.github.io/COMM-3710-bookdown/docs/ggplot2.html).
+
+
+## Histograms
+A histogram is a graphical representation of a frequency distribution of a variable. It shows the values of a variable and the number of units in your sample that are assigned that value. You have already seen many histograms; the `freq()` command in the `descr` that we have been using automatically generates a frequency table and a histogram showing the distribution of the variable.
+
+Although `freq()` generates a histogram, we cannot easily modify it (e.g., adding axes labels, legends). To do this, we can use `ggplot2` to create a histogram, among many other types of graphs. We will use the `mpg` dataset again. To refresh your memory, open the help page for `mpg` using the code chunk below.
+
+### Example
+Let's see what `ggplot2` is doing when you create a histogram with `ggplot2`. Run the code chunks below one at a time and observe the output to get a better sense of how ggplot builds graphs in layers.
+
+```{r plot1, exercise=TRUE}
+ggplot(data = mpg)
+```
+
+```{r plot2, exercise=TRUE}
+ggplot(data = mpg, aes(x = hwy))
+```
+
+```{r plot3, exercise=TRUE}
+ggplot(data = mpg, aes(x = hwy)) +
+        geom_histogram()
+```
+
+We can add axis labels to our graph by using the `labs()` layer.
+
+```{r labels, exercise=TRUE}
+ggplot(data = mpg, aes(x = hwy)) +
+        geom_histogram() +
+        labs(x = "Highway gas mileage (miles per gallon)")
+```
+
+### Your turn
+Create a histogram to examine the values of `cty`. Label the x-axis with "City gas mileage (miles per gallon)."
+
+```{r student-hist, exercise=TRUE}
+
+```
+
+```{r student-hist-hint}
+ggplot(data = mpg, aes(x = cty)) +
+        geom_histogram() +
+        labs(x = "City gas mileage (miles per gallon)")
+```
+
+## Scatter plots
+
+
+

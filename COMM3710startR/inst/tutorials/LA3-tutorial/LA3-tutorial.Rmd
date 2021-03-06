@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Introduction
-In this tutorial, you will learn how to use R to accomplish the following:
+In this tutorial, you will learn how to:
 
 1. Open a help page
 2. Run a frequency distribution

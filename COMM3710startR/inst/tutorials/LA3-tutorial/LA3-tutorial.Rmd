@@ -4,6 +4,9 @@ output:
   learnr::tutorial:
     theme: "united"
 runtime: shiny_prerendered
+description: >
+  Learn how to access help pages, run frequency distributions, and subset data
+  in R.
 ---
 
 ```{r setup, include=FALSE}

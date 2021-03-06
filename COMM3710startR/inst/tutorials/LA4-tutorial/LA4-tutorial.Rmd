@@ -22,7 +22,7 @@ In this tutorial, you will learn how to:
 
 1. Use `[ ]` for subsetting to recode variables
 2. Use the `ifelse()` function to recode variables
-3. Create a new variable by summing existing variables
+3. Create a new variable using mathematical operations
 
 We will use the `mpg` dataset from `ggplot2`, which has already been loaded for you in this tutorial. If you need to review the `mpg` dataset, open its help page (`?mpg`).
 
@@ -37,13 +37,16 @@ The first method we can use to recode an existing variable into a new one is to 
 
 We can use `[ ]` to select any number of elements from a vector. In this case, we will use a **logical vector** to select elements from the original variable, `cty`. The symbols `<=` and `>` are [logical operators](https://sarakyeo.github.io/COMM-3710-bookdown/docs/start.html#logical-operators).
 
-The code below selects elements in the existing variable, `cty`, that are equal to or greater than `15` and assigns the value `low` to them in the new variable `citygm`. Run the code below to create `citygm`.
+The code below selects elements in the existing variable, `cty`, that are equal to or lower than `15` and assigns the value `low` to them in the new variable `citygm`. Run the code below to create `citygm`.
 
 Then write code to run a frequency distribution of the newly created variable.
 
 ```{r ex-square, exercise=TRUE}
 mpg$citygm[mpg$cty <= 15] <- "low"
 mpg$citygm[mpg$cty > 15] <- "high"
+
+## Write code below to run a frequency distribution
+
 ```
 
 ```{r ex-square-hint}
@@ -68,8 +71,58 @@ freq(mpg$hwygm)
 ```
 
 
-### Using `ifelse()` to recode variables
+## Using `ifelse()` to recode variables
+Another means of recoding a variable is to use the function, `ifelse()`. First, use the code chunk below to open the help page for the function.
+
+```{r student-ifelse, exercise=TRUE}
+
+```
+
+```{r student-ifelse-hint}
+?ifelse
+```
+
+### Example
+Let's create the variable `citygm` using the `ifelse()` function.
+
+```{r ex-ifelse, exercise=TRUE}
+mpg$citygm <- ifelse(mpg$cty <= 15, "low", "high")
+```
+
+### Your turn
+*Use the `ifelse()` function to create, `hwygm`. Have the value of `hwygm` be `low` when `hwy` is less than or equal to `20` and `high` when `hwy` is greater than `20`.*
+
+```{r student-ifelse, exercise=TRUE}
+
+```
+
+```{r student-ifelse-hint}
+mpg$hwygm <- ifelse(mpg$hwy <= 20, "low", "high")
+```
 
 
+## Mathematical operations to create a new variable
+We can also create a new variable by summing/adding, subtracting, or calculating the average of two or more variables.
 
+### Example
+Let's create a new variable, `avgm`, by adding the two variables, `cty` and `hwy`. Write R code to check the frequency distribution of the new variable, `avgm`.
 
+```{r ex-oper, exercise=TRUE}
+mpg$avgm <- mpg$cty + mpg$hwy
+
+## Write code below to run a frequency distribution
+
+```
+
+### Your turn
+It does not make much sense to add `cty` and `hwy` together if we want to figure out each car's average gas mileage. Instead, we should take an average of the two variables by adding them and dividing by 2.
+
+*In the code chunk below, create the `avgm` variable by averaging `cty` and `hwy`.*
+
+```{e student-oper, exercise=TRUE}
+
+```
+
+```{r student-oper-hint}
+mpg$avgm <- (mpg$hwy + mpg$cty)/2
+```

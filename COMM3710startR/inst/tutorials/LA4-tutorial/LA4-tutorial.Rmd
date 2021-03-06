@@ -34,18 +34,30 @@ We will use the `mpg` dataset from `ggplot2`, which has already been loaded for 
 ## Recoding variables
 **Recode** is a term used to describe the process of making changes to the values of a variable. Recoding a variable often involves changing values in an existing variable to make a new one.
 
-Let's say we want to create a new variable called `citygm` that categorizes the cars based on city gas mileage, `cty`. We will have cars with 15 miles per gallon or lower be categorized as `low` and cars with over 15 miles per gallon be categorized as `high`.
+Let's say we want to create a new variable called `citygm` that categorizes cars based on their city gas mileage, `cty`. We will have cars with 15 miles per gallon or lower be categorized as `low` and cars with over 15 miles per gallon be categorized as `high`.
 
 ### Subsetting to recode variables
 The first method we can use to recode an existing variable into a new one is to use square brackets, `[ ]` for subsetting.
 
 We can use `[ ]` to select any number of elements from a vector. In this case, we will use a **logical vector** to select elements from the original variable, `cty`. The symbols `<=` and `>` are [logical operators](https://sarakyeo.github.io/COMM-3710-bookdown/docs/start.html#logical-operators).
 
-The code below selects elements in the existing variable, `cty`, that are equal to or lower than 15 and assigns the value `low` to them in the new variable `citygm`. Run the code below to create `citygm`.
+Before we begin the recoding process, we should examine the frequency distribution of the variable we want to recode, `cty`.
 
-Then write code to run a frequency distribution of the newly created variable.
+*Use the code chunk below to run a frequency distribution on `cty`.*
 
-```{r ex-square, exercise=TRUE}
+```{r freq-1, exercise=TRUE}
+
+```
+
+```{r freq-1-hint}
+freq(mpg$gm)
+```
+
+Now that we have examined the values of `cty`, we can recode it. The code below selects elements in `cty` that are equal to or lower than 15 and assigns the value `low` to them in the new variable `citygm`. The next line of code selects elements in `cty` that are greater than 15 and assigns `high` to them in `citygm`.
+
+*Run the code below to create `citygm`. Then, write code to run a frequency distribution of the newly created variable.*
+
+```{r ex-square, exercise=TRUE, exercise.lines=10}
 mpg$citygm[mpg$cty <= 15] <- "low"
 mpg$citygm[mpg$cty > 15] <- "high"
 
@@ -53,24 +65,24 @@ mpg$citygm[mpg$cty > 15] <- "high"
 
 ```
 
-```{r ex-square-hint}
-freq(mpg$gm)
-```
-
 ### Your turn
 *Write R code to create a new variable, `hwygm`, that categorizes the cars based on highway gas mileage, `hwy`. Have the value of `hwygm` be `low` when `hwy` is less than or equal to 20 and `high` when `hwy` is greater than 20.*
 
-Remember to run a frequency distribution of a the new variable to check that you created correctly.
+Remember to run a frequency distribution of both the existing and new variables to check that you created correctly.
 
-```{r student-square, exercise=TRUE}
+```{r student-square, exercise=TRUE, exercise.lines=10}
 
 ```
 
 ```{r student-square-hint}
+## Check var to be recoded
+freq(mpg$hwy)
+
+## Recode hwy var into hwygm
 mpg$hwygm[mpg$hwy <= 20] <- "low"
 mpg$hwygm[mpg$hwy > 20] <- "high"
 
-## Run a frequency distribution
+## Check new/recoded var
 freq(mpg$hwygm)
 ```
 
@@ -87,19 +99,24 @@ Another means of recoding a variable is to use the function, `ifelse()`. First, 
 ```
 
 ### Example
+To begin, run a frequency distribution of the existing variable, `cty`.
 The code below creates a new variable called `citygm` based on the existing variable, `cty`. It recodes `cty` into a new variable that assigns "low" to cars that have a city gas mileage of 15 miles per gallon or lower and "high" to cars that have higher than 15 city miles per gallon.
 
-```{r ex-ifelse, exercise=TRUE}
+```{r ex-ifelse, exercise=TRUE, exercise.lines=10}
+## Check var to be recoded
+freq(mpg$cty)
+
+## Recode cty into citygm using ifelse()
 mpg$citygm <- ifelse(mpg$cty <= 15, "low", "high")
 
-## Run a fequency distribution to check the new variable
+## Check new/recoded var
 freq(mpg$citygm)
 ```
 
 ### Your turn
-*Use the `ifelse()` function to create, `hwygm`. Have the value of `hwygm` be `low` when `hwy` is less than or equal to 20 and `high` when `hwy` is greater than 20.*
+*Use the `ifelse()` function to create, `hwygm`. Have the value of `hwygm` be `low` when `hwy` is less than or equal to 20 and `high` when `hwy` is greater than 20. Remember to use `freq()` to check the existing and new variables.*
 
-```{r student-ifelse, exercise=TRUE}
+```{r student-ifelse, exercise=TRUE, exercise.lines=10}
 
 ```
 
@@ -114,24 +131,25 @@ We can also create a new variable by summing/adding, subtracting, or calculating
 ### Example
 Let's create a new variable, `sumgm`, by adding the two variables, `cty` and `hwy`. Write R code to check the frequency distribution of the new variable, `sumgm`.
 
-```{r ex-oper, exercise=TRUE}
+```{r ex-oper, exercise=TRUE, exercise.lines=10}
 mpg$sumgm <- mpg$cty + mpg$hwy
 
-## Write code below to run a frequency distribution
+## Write code below to run frequency distribution
 
 ```
 
 ### Your turn
 It does not make much sense to add `cty` and `hwy` together. It would be more informative to know each car's average gas mileage. To do this, we can take an average of the two variables by adding them together and dividing by 2.
 
-*In the code chunk below, create the `avgm` variable by averaging `cty` and `hwy`.*
+*In the code chunk below, create the `avgm` variable by averaging `cty` and `hwy`. Then, run a frequency distribution of `avgm` to check that you have created it correctly.*
 
-```{e student-oper, exercise=TRUE}
+```{e student-oper, exercise=TRUE, exercise.lines=10}
 
 ```
 
 ```{r student-oper-hint}
 mpg$avgm <- (mpg$hwy + mpg$cty)/2
+freq(mpg$avgm)
 ```
 
 ### Congratulations

@@ -24,7 +24,7 @@ In this tutorial, you will learn how to:
 2. Use the `ifelse()` function to recode variables
 3. Create a new variable using mathematical operations
 
-We will use the `mpg` dataset from `ggplot2`, which has already been loaded for you in this tutorial. If you need to review the `mpg` dataset, open its help page (`?mpg`) in the code chunk below.
+We will use the `mpg` dataset from `ggplot2`, which has already been loaded for you in this tutorial. Review the `mpg` dataset by opening its help page (`?mpg`) in the code chunk below.
 
 ```{r help, exercise=TRUE}
 
@@ -43,7 +43,7 @@ We can use `[ ]` to select any number of elements from a vector. In this case, w
 
 Before we begin the recoding process, we should examine the frequency distribution of the variable we want to recode, `cty`.
 
-*Use the code chunk below to run a frequency distribution on `cty`.*
+Use the code chunk below to run a frequency distribution on `cty`.
 
 ```{r freq-1, exercise=TRUE}
 
@@ -55,7 +55,7 @@ freq(mpg$gm)
 
 Now that we have examined the values of `cty`, we can recode it. The code below selects elements in `cty` that are equal to or lower than 15 and assigns the value `low` to them in the new variable `citygm`. The next line of code selects elements in `cty` that are greater than 15 and assigns `high` to them in `citygm`.
 
-*Run the code below to create `citygm`. Then, write code to run a frequency distribution of the newly created variable.*
+Write code to run a frequency distribution of the newly created variable in the code chunk below. Then, run the code to create and examine `citygm`. Do not worry about the warning that results--we could write an extra line of code to avoid getting that warning message but it is not necessary.
 
 ```{r ex-square, exercise=TRUE, exercise.lines=10}
 mpg$citygm[mpg$cty <= 15] <- "low"
@@ -66,7 +66,7 @@ mpg$citygm[mpg$cty > 15] <- "high"
 ```
 
 ### Your turn
-*Write R code to create a new variable, `hwygm`, that categorizes the cars based on highway gas mileage, `hwy`. Have the value of `hwygm` be `low` when `hwy` is less than or equal to 20 and `high` when `hwy` is greater than 20.*
+Write R code to create a new variable, `hwygm`, that categorizes the cars based on highway gas mileage, `hwy`. Have the value of `hwygm` be `low` when `hwy` is less than or equal to 20 and `high` when `hwy` is greater than 20.
 
 Remember to run a frequency distribution of both the existing and new variables to check that you created correctly.
 
@@ -114,7 +114,7 @@ freq(mpg$citygm)
 ```
 
 ### Your turn
-*Use the `ifelse()` function to create, `hwygm`. Have the value of `hwygm` be `low` when `hwy` is less than or equal to 20 and `high` when `hwy` is greater than 20. Remember to use `freq()` to check the existing and new variables.*
+Use the `ifelse()` function to create, `hwygm`. Have the value of `hwygm` be `low` when `hwy` is less than or equal to 20 and `high` when `hwy` is greater than 20. Remember to use `freq()` to check the existing and new variables.
 
 ```{r student-ifelse, exercise=TRUE, exercise.lines=10}
 
@@ -141,7 +141,7 @@ mpg$sumgm <- mpg$cty + mpg$hwy
 ### Your turn
 It does not make much sense to add `cty` and `hwy` together. It would be more informative to know each car's average gas mileage. To do this, we can take an average of the two variables by adding them together and dividing by 2.
 
-*In the code chunk below, create the `avgm` variable by averaging `cty` and `hwy`. Then, run a frequency distribution of `avgm` to check that you have created it correctly.*
+In the code chunk below, create the `avgm` variable by averaging `cty` and `hwy`. Then, run a frequency distribution of `avgm` to check that you have created it correctly.
 
 ```{e student-oper, exercise=TRUE, exercise.lines=10}
 

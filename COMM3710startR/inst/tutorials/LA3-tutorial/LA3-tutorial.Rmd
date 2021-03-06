@@ -70,7 +70,7 @@ freq(mpg$manufacturer)
 ```
 
 ### Your turn
-*Write the R code to run a frequency distribution of the variable `hwy` in the `mpg` data frame.*
+Write the R code to run a frequency distribution of the variable `hwy` in the `mpg` data frame.
 
 ```{r student-freq, exercise=TRUE}
 
@@ -95,7 +95,7 @@ freq(subdf$hwy)
 ```
 
 ### Your turn
-*Write R code to subset the data by manufacturer (`manufacturer`). Examine the highway mileage (`hwy`) of cars made by Toyota by running a frequency distribution.*
+Write R code to subset the data by manufacturer (`manufacturer`). Examine the highway mileage (`hwy`) of cars made by Toyota by running a frequency distribution.
 
 ```{r student-sub, exercise=TRUE}
 

@@ -14,14 +14,13 @@ library(learnr)
 library(tidyverse)
 library(descr)
 library(magrittr)
-
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Introduction
 In this tutorial, you will learn how to use R to accomplish the following:
 
-1. Open a help page in R
+1. Open a help page
 2. Run a frequency distribution
 3. Subset data
 
@@ -37,7 +36,9 @@ The `mpg` data frame contains observations collected by the U.S. Environmental P
 ```
 
 ### A note about `mpg`
-Note that I have already loaded the `ggplot2` package for you. On your own computer, you will first have to install and load `ggplot2` in R. To do so, follow the instructions in this [section of COMM 3710: Getting Started with R](https://sarakyeo.github.io/COMM-3710-bookdown/docs/start.html#packages).
+Note that I have already loaded the `ggplot2` package for you. On your own computer, you will first have to install and load `ggplot2` in R.
+
+To do so, follow the instructions in this [section of COMM 3710: Getting Started with R](https://sarakyeo.github.io/COMM-3710-bookdown/docs/start.html#packages).
 
 
 ## Help pages
@@ -94,7 +95,7 @@ freq(subdf$hwy)
 ```
 
 ### Your turn
-*Write R code to subset the data by manufacturer (`manufacturer`). Examine the highway mileage (`hwy`) of Toyotas by running a frequency distribution.*
+*Write R code to subset the data by manufacturer (`manufacturer`). Examine the highway mileage (`hwy`) of cars made by Toyota by running a frequency distribution.*
 
 ```{r student-sub, exercise=TRUE}
 
